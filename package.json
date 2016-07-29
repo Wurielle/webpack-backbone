@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
+	"opti": "webpack --optimise-minimize",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
