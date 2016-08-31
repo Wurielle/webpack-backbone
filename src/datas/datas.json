@@ -1,0 +1,26 @@
+{
+	"pages" : [
+		{
+			"id":"homepage",
+			"title":"Hello Noah,",
+			"txt":"what are we doing today?",
+			"button":"view on github",
+			"button-link":"https://github.com/Wurielle/webpack-backbone",
+			"button-attr":"target='_blank'"
+		},
+		{
+			"id":"another-page",
+			"title":"Hello World!",
+			"txt":"this is another page!"
+		}
+	],
+	"nav" : {
+
+	},
+	"footer" : {
+
+	},
+	"other" : {
+
+	}
+}

@@ -1,7 +1,6 @@
 $(function() {
 
 	require('../styl/main.styl');
-	require('../styl/app.styl');
 	require('../styl/mobile.styl');
 	require('../styl/toold.styl');
 	require('gsap');
