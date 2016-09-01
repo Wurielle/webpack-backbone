@@ -47,11 +47,11 @@
 	/* WEBPACK VAR INJECTION */(function($, Backbone) {$(function() {
 
 		__webpack_require__(4);
-		__webpack_require__(8);
 		__webpack_require__(10);
 		__webpack_require__(12);
+		__webpack_require__(14);
 
-		var ApplicationRouter = __webpack_require__(14);
+		var ApplicationRouter = __webpack_require__(16);
 		var router = new ApplicationRouter();
 		Backbone.history.start();
 	});
@@ -13369,12 +13369,7 @@
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
+/* 8 */,
 /* 9 */,
 /* 10 */
 /***/ function(module, exports) {
@@ -13384,6 +13379,13 @@
 /***/ },
 /* 11 */,
 /* 12 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 13 */,
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global) {/*!
@@ -19375,7 +19377,7 @@
 							if (global) {
 								_globals[n] = _exports[n] = cl; //provides a way to avoid global namespace pollution. By default, the main classes like TweenLite, Power1, Strong, etc. are added to window unless a GreenSockGlobals is defined. So if you want to have things added to a custom object instead, just do something like window.GreenSockGlobals = {} before loading any GreenSock files. You can even set up an alias like window.GreenSockGlobals = windows.gs = {} so that you can access everything like gs.TweenLite. Also remember that ALL classes are added to the window.com.greensock object (in their respective packages, like com.greensock.easing.Power1, com.greensock.TweenLite, etc.)
 								hasModule = (typeof(module) !== "undefined" && module.exports);
-								if (!hasModule && "function" === "function" && __webpack_require__(13)){ //AMD
+								if (!hasModule && "function" === "function" && __webpack_require__(15)){ //AMD
 									!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() { return cl; }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 								} else if (hasModule){ //node
 									if (ns === moduleName) {
@@ -21189,7 +21191,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -21197,11 +21199,11 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(Backbone, _, $) {var Homepage = __webpack_require__(15);
-	__webpack_require__(21);
+	/* WEBPACK VAR INJECTION */(function(Backbone, _, $) {var Homepage = __webpack_require__(17);
+	__webpack_require__(23);
 
 	var ApplicationRouter = Backbone.Router.extend({
 		routes: {
@@ -21211,7 +21213,7 @@
 	        this.listener = {};
 	        _.extend(this.listener, Backbone.Events);
 
-	        this.json = __webpack_require__(21);
+	        this.json = __webpack_require__(23);
 
 	        this.homepage = new Homepage({el: $('#homepage')});
 			this.homepage.render(this.json.pages[0]);
@@ -21222,18 +21224,19 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(3), __webpack_require__(1)))
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	MainPageView = __webpack_require__(16);
+	MainPageView = __webpack_require__(18);
 	var HomepageView = MainPageView.extend({
 		initialize: function() {
 
 	    },
 		render: function(json){
 			this.json = json;
+			
 	        // on ajouter le template html
-	        var template = __webpack_require__(17);
+	        var template = __webpack_require__(19);
 	        var html = template({homepage: this.json});
 	        this.$el.append(html);
 		},
@@ -21248,7 +21251,7 @@
 
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Backbone, _) {var MainPageView = Backbone.View.extend({
@@ -21274,14 +21277,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(3)))
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var H = __webpack_require__(18);
-	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<div>\r");t.b("\n" + i);t.b("	<h1>");t.b(t.v(t.d("homepage.txt",c,p,0)));t.b("</h1>\r");t.b("\n" + i);t.b("</div>");return t.fl(); },partials: {}, subs: {  }}, "<div>\r\n\t<h1>{{homepage.txt}}</h1>\r\n</div>", H);return T.render.apply(T, arguments); };
+	var H = __webpack_require__(20);
+	module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<div class=\"container\">\r");t.b("\n" + i);t.b("	<div class=\"row\">\r");t.b("\n" + i);t.b("		<div class=\"twelve column\">\r");t.b("\n" + i);t.b("			<h4>");t.b(t.v(t.d("homepage.title",c,p,0)));t.b("</h4>\r");t.b("\n" + i);t.b("			<p>\r");t.b("\n" + i);t.b("				");t.b(t.v(t.d("homepage.txt",c,p,0)));t.b("\r");t.b("\n" + i);t.b("			</p>\r");t.b("\n" + i);t.b("			<a href=\"");t.b(t.v(t.d("homepage.button-link",c,p,0)));t.b("\" class=\"button\" ");t.b(t.v(t.d("homepage.button-attr",c,p,0)));t.b(">");t.b(t.v(t.d("homepage.button",c,p,0)));t.b("</a>\r");t.b("\n" + i);t.b("		</div>\r");t.b("\n" + i);t.b("	</div>\r");t.b("\n" + i);t.b("</div>");return t.fl(); },partials: {}, subs: {  }}, "<div class=\"container\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"twelve column\">\r\n\t\t\t<h4>{{homepage.title}}</h4>\r\n\t\t\t<p>\r\n\t\t\t\t{{homepage.txt}}\r\n\t\t\t</p>\r\n\t\t\t<a href=\"{{homepage.button-link}}\" class=\"button\" {{homepage.button-attr}}>{{homepage.button}}</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>", H);return T.render.apply(T, arguments); };
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -21301,14 +21304,14 @@
 
 	// This file is for use with Node.js. See dist/ for browser files.
 
-	var Hogan = __webpack_require__(19);
-	Hogan.Template = __webpack_require__(20).Template;
+	var Hogan = __webpack_require__(21);
+	Hogan.Template = __webpack_require__(22).Template;
 	Hogan.template = Hogan.Template;
 	module.exports = Hogan;
 
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -21737,7 +21740,7 @@
 
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -22084,17 +22087,23 @@
 
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports) {
 
 	module.exports = {
 		"pages": [
 			{
 				"id": "homepage",
-				"txt": "Hello World!"
+				"title": "Hello Noah,",
+				"txt": "what are we doing today?",
+				"button": "view on github",
+				"button-link": "https://github.com/Wurielle/webpack-backbone",
+				"button-attr": "target='_blank'"
 			},
 			{
-				"id": "about"
+				"id": "another-page",
+				"title": "Hello World!",
+				"txt": "this is another page!"
 			}
 		],
 		"nav": {},
