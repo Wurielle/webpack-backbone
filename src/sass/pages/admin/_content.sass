@@ -1,0 +1,37 @@
+#content
+    width: 100%
+    min-height: 100vh
+    position: relative
+    padding-left: 200px
+    padding-top: 60px
+
+section
+    padding: 100px 0
+    border-bottom: 1px solid $border-color
+    display: inline-block
+    width: 100%
+    &:last-of-type
+        border-bottom: none
+
+code
+    background-color: white
+
+#grid
+    .big .custom-grid
+        height: 102px
+    .medium .custom-grid
+        height: 68px
+    .small .custom-grid
+        height: 34px
+    .custom-grid
+        // padding: 7px 10px
+        border-left: none
+        &::before
+            content: ''
+            display: inline-block
+            width: 100%
+            height: 100%
+            border-radius: 2px
+            border: 1px solid $border-color
+            background-color: white
+            float: left

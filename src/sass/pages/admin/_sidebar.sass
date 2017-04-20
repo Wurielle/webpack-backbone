@@ -1,0 +1,30 @@
+#sidebar
+    width: 200px
+    height: 100vh
+    position: fixed
+    background-color: #1C1F1F
+    color: white
+    // overflow: auto
+    z-index: 9999
+    padding-top: $header-height
+    .title
+        height: 60px
+        text-align: center
+        h1
+            line-height: 60px
+            color: white
+            font-size: 2rem
+            margin: 0
+    .sidebar-wrapper
+        &>ul
+            list-style: none
+            position: relative
+            &>li
+                margin: 0
+                &>a
+                    padding: 15px 30px
+                    display: block
+                    color: white
+                    text-decoration: none
+                    font-size: $font-size-smallest
+                    text-transform: uppercase

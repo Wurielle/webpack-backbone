@@ -1,0 +1,60 @@
+$header-height: 60px
+$header-padding: 200px
+$user-portrait: 40px
+#header
+    position: fixed
+    height: $header-height
+    width: 100%
+    border-bottom: 1px solid rgba($font-color, 0.20)
+    padding-left: $header-padding
+    z-index: 10000
+    nav
+        height: 100%
+        position: relative
+        background-color: $bg-color
+        line-height: $header-height
+        .user
+            ul
+                list-style: none
+                margin: 0
+                li
+                    margin: 0
+                    a
+                        color: $font-color
+                        text-decoration: none
+                        display: block
+                        &:hover
+                            color: $font-color
+
+            &>ul
+                display: inline-block
+                height: $header-height
+                margin: 0
+                float: left
+                &>li
+                    height: 100%
+                    margin: 0
+                    float: left
+                    position: relative
+                    &>a
+                        padding: $header-height/3 5px
+                        line-height: $header-height/3
+                        height: 100%
+
+
+            span
+                text-transform: uppercase
+                font-size: 1rem
+                font-weight: 600
+            .user-image
+                padding: ($header-height - $user-portrait)/2 0
+                float: left
+                line-height: $header-height
+                img.portrait
+                    line-height: 1
+                    width: $user-portrait
+                    height: $user-portrait
+                    object-fit: cover
+                    object-position: center
+                    border-radius: 9999px
+                    margin-left: 5px

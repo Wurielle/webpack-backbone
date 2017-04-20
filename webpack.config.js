@@ -23,6 +23,15 @@ module.exports = {
                 use: [{
                     loader: "css-loader"
                 }, {
+                    loader: "postcss-loader",
+                    options: {
+                        plugins: function () {
+                            return [
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
+                }, {
                     loader: "sass-loader?indentedSyntax=sass"
                 }],
                 // use style-loader in development
@@ -35,6 +44,15 @@ module.exports = {
                 use: [{
                     loader: "css-loader"
                 }, {
+                    loader: "postcss-loader",
+                    options: {
+                        plugins: function () {
+                            return [
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
+                }, {
                     loader: "stylus-loader"
                 }],
                 // use style-loader in development
@@ -44,7 +62,18 @@ module.exports = {
         {
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
-                use: "css-loader",
+                use: [{
+                    loader: "css-loader"
+                }, {
+                    loader: "postcss-loader",
+                    options: {
+                        plugins: function () {
+                            return [
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
+                }],
                 fallback: "style-loader"
             }),
         },
@@ -58,8 +87,8 @@ module.exports = {
         // },
         {
             test: /\.(jpe?g|png|gif|svg)$/i,
-            use: ['file?hash=sha512&digest=hex&name=images/export/[name].[ext]',
-            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+            use: ['file-loader?hash=sha512&digest=hex&name=images/export/[name].[ext]',
+            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
             ]
         },
         {
@@ -68,6 +97,7 @@ module.exports = {
         }]
     },
   plugins: [
+    require('autoprefixer'),
     extractSass, // see first few line to see the definition and the output
     new webpack.ProvidePlugin({
         $ : "jquery",

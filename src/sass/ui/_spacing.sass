@@ -1,0 +1,57 @@
+// Variables--------------------------------------------------------------------
+$spacing-button-margin: 0 0 1rem 0
+$spacing-input-margin: 0 0 1.5rem 0
+$spacing-misc-margin: 0 0 1.5rem 0
+
+$vs: 0 0 $gutter 0
+$xs-vs: 0 0 $gutter 0
+$sm-vs: 0 0 $gutter 0
+$md-vs: 0 0 $gutter 0
+$lg-vs: 0 0 $gutter 0
+// Spacing ---------------------------------------------------------------------
+button,
+.button
+    margin: $spacing-button-margin
+input,
+textarea,
+select,
+fieldset
+    margin: $spacing-input-margin
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form
+    margin: $spacing-misc-margin
+
+// vertical Spacing
+.vs
+    margin: $vs
+
+@media (min-width: $lg)
+    .lg-vs
+        margin: $lg-vs
+    .lg-novs
+        margin: 0
+
+@media (min-width: $md)
+    .md-vs
+        margin: $md-vs
+    .md-novs
+        margin: 0
+
+@media (min-width: $sm)
+    .sm-vs
+        margin: $sm-vs
+    .sm-novs
+        margin: 0
+
+@media (min-width: $xs)
+    .xs-vs
+        margin: $xs-vs
+    .xs-vs
+        margin: 0

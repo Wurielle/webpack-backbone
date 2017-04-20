@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -13869,18 +13869,6 @@ module.exports = {
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -19926,7 +19914,7 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 						if (global) {
 							_globals[n] = _exports[n] = cl; //provides a way to avoid global namespace pollution. By default, the main classes like TweenLite, Power1, Strong, etc. are added to window unless a GreenSockGlobals is defined. So if you want to have things added to a custom object instead, just do something like window.GreenSockGlobals = {} before loading any GreenSock files. You can even set up an alias like window.GreenSockGlobals = windows.gs = {} so that you can access everything like gs.TweenLite. Also remember that ALL classes are added to the window.com.greensock object (in their respective packages, like com.greensock.easing.Power1, com.greensock.TweenLite, etc.)
 							hasModule = (typeof(module) !== "undefined" && module.exports);
-							if (!hasModule && "function" === "function" && __webpack_require__(14)){ //AMD
+							if (!hasModule && "function" === "function" && __webpack_require__(12)){ //AMD
 								!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() { return cl; }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 							} else if (hasModule){ //node
@@ -21744,10 +21732,10 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 9 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Backbone, _, $) {var Homepage = __webpack_require__(16);
+/* WEBPACK VAR INJECTION */(function(Backbone, _, $) {var Homepage = __webpack_require__(14);
 __webpack_require__(4);
 
 var ApplicationRouter = Backbone.Router.extend({
@@ -21769,7 +21757,7 @@ module.exports = ApplicationRouter;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(2), __webpack_require__(1)))
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -22198,7 +22186,7 @@ module.exports = ApplicationRouter;
 
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -22218,14 +22206,14 @@ module.exports = ApplicationRouter;
 
 // This file is for use with Node.js. See dist/ for browser files.
 
-var Hogan = __webpack_require__(10);
-Hogan.Template = __webpack_require__(12).Template;
+var Hogan = __webpack_require__(8);
+Hogan.Template = __webpack_require__(10).Template;
 Hogan.template = Hogan.Template;
 module.exports = Hogan;
 
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -22572,14 +22560,14 @@ var Hogan = {};
 
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var H = __webpack_require__(11);
+var H = __webpack_require__(9);
 module.exports = function() { var T = new H.Template({code: function (c,p,i) { var t=this;t.b(i=i||"");t.b("<div class=\"container\">\r");t.b("\n" + i);t.b("	<div class=\"row\">\r");t.b("\n" + i);t.b("		<div class=\"twelve column\">\r");t.b("\n" + i);t.b("			<h4>");t.b(t.v(t.d("homepage.title",c,p,0)));t.b("</h4>\r");t.b("\n" + i);t.b("			<p>\r");t.b("\n" + i);t.b("				");t.b(t.v(t.d("homepage.txt",c,p,0)));t.b("\r");t.b("\n" + i);t.b("			</p>\r");t.b("\n" + i);t.b("			<a href=\"");t.b(t.v(t.d("homepage.button-link",c,p,0)));t.b("\" class=\"button\" ");t.b(t.v(t.d("homepage.button-attr",c,p,0)));t.b(">");t.b(t.v(t.d("homepage.button",c,p,0)));t.b("</a>\r");t.b("\n" + i);t.b("		</div>\r");t.b("\n" + i);t.b("	</div>\r");t.b("\n" + i);t.b("</div>");return t.fl(); },partials: {}, subs: {  }}, "<div class=\"container\">\r\n\t<div class=\"row\">\r\n\t\t<div class=\"twelve column\">\r\n\t\t\t<h4>{{homepage.title}}</h4>\r\n\t\t\t<p>\r\n\t\t\t\t{{homepage.txt}}\r\n\t\t\t</p>\r\n\t\t\t<a href=\"{{homepage.button-link}}\" class=\"button\" {{homepage.button-attr}}>{{homepage.button}}</a>\r\n\t\t</div>\r\n\t</div>\r\n</div>", H);return T.render.apply(T, arguments); };
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -22588,17 +22576,18 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($, Backbone) {$(function() {
 
-	__webpack_require__(5);
+	// require('../styl/main.styl');
+	// require('../styl/mobile.styl');
+	// require('../styl/toold.styl');
+	__webpack_require__(5)
 	__webpack_require__(6);
-	__webpack_require__(7);
-	__webpack_require__(8);
 
-	var ApplicationRouter = __webpack_require__(9);
+	var ApplicationRouter = __webpack_require__(7);
 	var router = new ApplicationRouter();
 	Backbone.history.start();
 });
@@ -22606,10 +22595,10 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-MainPageView = __webpack_require__(17);
+MainPageView = __webpack_require__(15);
 var HomepageView = MainPageView.extend({
 	initialize: function() {
 
@@ -22618,7 +22607,7 @@ var HomepageView = MainPageView.extend({
 		this.json = json;
 		
         // on ajouter le template html
-        var template = __webpack_require__(13);
+        var template = __webpack_require__(11);
         var html = template({homepage: this.json});
         this.$el.append(html);
 	},
@@ -22633,7 +22622,7 @@ module.exports = HomepageView;
 
 
 /***/ }),
-/* 17 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Backbone, _) {var MainPageView = Backbone.View.extend({
