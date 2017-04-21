@@ -96,8 +96,8 @@ module.exports = {
                 loader: 'image-webpack-loader',
                 options: {
                     bypassOnDebug: true,
-                    optimizationLevel: 7,
-                    interlaced: false,
+                    // optimizationLevel: 7,
+                    // interlaced: false,
                     // mozjpeg: {
                     //     progressive: true,
                     // },
