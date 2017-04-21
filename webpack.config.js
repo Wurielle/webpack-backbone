@@ -6,7 +6,7 @@ const extractSass = new ExtractTextPlugin({
     filename: "../css/[name].css",
     disable: false
 });
-module.exports = {
+module.exports = {// See https://webpack.js.org/concepts/
     context: path.resolve(__dirname, './'),
     entry: {
         main: './src/js/main.js',
@@ -16,7 +16,7 @@ module.exports = {
         filename: '[name].bundle.js',
     },
     module: {
-        rules: [
+        rules: [// See: https://webpack.js.org/configuration/module/#rule, https://webpack.js.org/concepts/loaders/
         {// Sass loader
             test: /\.sass$/,
             use: extractSass.extract({
@@ -37,7 +37,6 @@ module.exports = {
                         indentedSyntax: 'sass'
                     }
                 }],
-                // use style-loader in development
                 fallback: "style-loader"
             })
         },
@@ -58,7 +57,6 @@ module.exports = {
                 }, {
                     loader: "stylus-loader"
                 }],
-                // use style-loader in development
                 fallback: "style-loader"
             })
         },
@@ -133,6 +131,11 @@ module.exports = {
 // Tuto: https://blog.madewithenvy.com/getting-started-with-webpack-2-ed2b86c68783
 // Doc: https://webpack.js.org
 
+// NOTE: const is like var
+
 // NOTE: __dirname refers to the directory where this webpack.config.js lives, which in this blogpost is the project root.
+
 // NOTE: in the output, [name] stands for the entry name of your entry, in this case it's main
+
 // NOTE: queries are now options so if you have something like: {loader: 'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'}, you can turn it into {loader: 'image-webpack-loader', options: {bypassOnDebug: true, optimizationLevel: 7, interlaced: false}
+// See https://webpack.js.org/guides/migrating/#what-are-options-
