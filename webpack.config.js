@@ -17,7 +17,7 @@ module.exports = {
     },
     module: {
         rules: [
-        {
+        {// Sass loader
             test: /\.sass$/,
             use: extractSass.extract({
                 use: [{
@@ -32,13 +32,16 @@ module.exports = {
                         }
                     }
                 }, {
-                    loader: "sass-loader?indentedSyntax=sass"
+                    loader: "sass-loader",
+                    options: {
+                        indentedSyntax: 'sass'
+                    }
                 }],
                 // use style-loader in development
                 fallback: "style-loader"
             })
         },
-        {
+        {// Stylus loader
             test: /\.styl$/,
             use: extractSass.extract({
                 use: [{
@@ -59,7 +62,7 @@ module.exports = {
                 fallback: "style-loader"
             })
         },
-        {
+        {// CSS loader
             test: /\.css$/,
             use: ExtractTextPlugin.extract({
                 use: [{
@@ -77,23 +80,41 @@ module.exports = {
                 fallback: "style-loader"
             }),
         },
-        {
+        {// Mustache loader
             test: /\.html$/,
             use: "mustache-loader"
         },
-        // {
+        // {// JSON loader
         //   test: /\.json$/,
         //   use: 'json-loader' // NOT NEEDED ANYMORE https://webpack.js.org/guides/migrating/#json-loader-is-not-required-anymore
         // },
-        {
+        {// Image loader
             test: /\.(jpe?g|png|gif|svg)$/i,
-            use: ['file-loader?hash=sha512&digest=hex&name=images/export/[name].[ext]',
-            'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
-            ]
+            use: [{
+                loader: 'file-loader?hash=sha512&digest=hex&name=../images/export/[name].[ext]',
+            }, {
+                loader: 'image-webpack-loader',
+                options: {
+                    bypassOnDebug: true,
+                    optimizationLevel: 7,
+                    interlaced: false,
+                    // mozjpeg: {
+                    //     progressive: true,
+                    // },
+                    gifsicle: {
+                        interlaced: false,
+                    },
+                    pngquant: {
+                        quality: '100',
+                        optimizationLevel: 7,
+                        speed: 3,
+                    },
+                },
+            }]
         },
-        {
+        {// Font loader
           test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-          use: 'file-loader?name=fonts/[name].[ext]'
+          use: 'file-loader?name=../fonts/[name].[ext]'
         }]
     },
   plugins: [
@@ -112,5 +133,6 @@ module.exports = {
 // Tuto: https://blog.madewithenvy.com/getting-started-with-webpack-2-ed2b86c68783
 // Doc: https://webpack.js.org
 
-// Note: __dirname refers to the directory where this webpack.config.js lives, which in this blogpost is the project root.
-// Note: in the output, [name] stands for the entry name of your entry, in this case it's main
+// NOTE: __dirname refers to the directory where this webpack.config.js lives, which in this blogpost is the project root.
+// NOTE: in the output, [name] stands for the entry name of your entry, in this case it's main
+// NOTE: queries are now options so if you have something like: {loader: 'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'}, you can turn it into {loader: 'image-webpack-loader', options: {bypassOnDebug: true, optimizationLevel: 7, interlaced: false}

@@ -367,8 +367,8 @@ th {
 */
 @font-face {
   font-family: "Ionicons";
-  src: url(fonts/ionicons.eot);
-  src: url(fonts/ionicons.eot#iefix) format("embedded-opentype"), url(fonts/ionicons.ttf) format("truetype"), url(fonts/ionicons.woff) format("woff"), url(images/export/ionicons.svg#Ionicons) format("svg");
+  src: url(../fonts/ionicons.eot);
+  src: url(../fonts/ionicons.eot#iefix) format("embedded-opentype"), url(../fonts/ionicons.ttf) format("truetype"), url(../fonts/ionicons.woff) format("woff"), url(../images/export/ionicons.svg#Ionicons) format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -3628,11 +3628,6 @@ th {
     margin-left: 8.33333%; }
   .lg-off-0 {
     margin-left: 0%; } }
-
-* {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 2rem 0;

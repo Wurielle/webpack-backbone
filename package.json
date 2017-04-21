@@ -1,10 +1,14 @@
 {
-  "name": "base-symfony",
+  "name": "webpack-backbone",
   "version": "1.0.0",
-  "description": "Noah's dependencies. Will probably include Webpack 2, Backbone, Sass, Autoprefixer.",
+  "description": "Noah's dependencies. Includes Webpack 2 (Module Bundler), Backbone(MVC Javascript Framework), Mustache, jQuery, jQuery-Mobile, Sass (CSS Preprocessor), Stylus (CSS Preprocessor), Autoprefixer (Adds Vendors to CSS. Bye Bye Compass :>).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "./node_modules/.bin/webpack",
+    "watch": "./node_modules/.bin/webpack --progress --colors --watch",
+    "opti": "./node_modules/.bin/webpack --optimise-minimize",
+    "dev": "./node_modules/.bin/webpack-dev-server"
   },
   "author": "Noah",
   "license": "ISC",
