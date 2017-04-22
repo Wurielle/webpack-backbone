@@ -14,24 +14,24 @@ npm install
 ```
 npm run compile 
 ```
-
+---
 
 > Watch (webpack --progress --colors --watch):
 ```
 npm run watch 
 ```
-
+---
 
 > Minimize (webpack --optimize-minimize):
 ```
 npm run opti 
 ```
-
+---
 
 > Dev server (webpack-dev-server):
 ```
 npm run dev 
 ```
-
+---
 
 You can change these my changing the scripts in the package.json file.
