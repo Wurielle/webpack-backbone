@@ -9,7 +9,7 @@ npm install
 
 
 - Compile, watch or use webpack-dev-server with the following commands:
-
+---
 > Compile (webpack):
 ```
 npm run compile 
