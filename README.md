@@ -10,25 +10,25 @@ npm install
 
 - Compile, watch or use webpack-dev-server with the following commands:
 
-⋅⋅* Compile (webpack):
+> Compile (webpack):
 ```
 npm run compile 
 ```
 
 
-⋅⋅* Watch (webpack --progress --colors --watch):
+> Watch (webpack --progress --colors --watch):
 ```
 npm run watch 
 ```
 
 
-⋅⋅* Minimize (webpack --optimize-minimize):
+> Minimize (webpack --optimize-minimize):
 ```
 npm run opti 
 ```
 
 
-⋅⋅* Dev server (webpack-dev-server):
+> Dev server (webpack-dev-server):
 ```
 npm run dev 
 ```
