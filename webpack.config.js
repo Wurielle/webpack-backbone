@@ -88,6 +88,7 @@ module.exports = {// See https://webpack.js.org/concepts/
         // },
         {// Image loader
             test: /\.(jpe?g|png|gif|svg)$/i,
+            exclude: [/fonts/],
             use: [{
                 loader: 'file-loader?hash=sha512&digest=hex&name=../images/export/[name].[ext]',
             }, {
@@ -111,21 +112,39 @@ module.exports = {// See https://webpack.js.org/concepts/
             }]
         },
         {// Font loader
-          test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
-          use: 'file-loader?name=../fonts/[name].[ext]'
+            test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+            use: 'file-loader?name=../fonts/[name].[ext]'
+        }, 
+        {// Allows jquery to be used everywhere and not just in our bundled js
+            test: require.resolve('jquery'),
+            use: [{
+                loader: 'expose-loader',
+                options: 'window.jQuery'
+            }, {
+                loader: 'expose-loader',
+                options: 'jQuery'
+            }, {
+                loader: 'expose-loader',
+                options: '$'
+            }]
         }]
     },
-  plugins: [
-    require('autoprefixer'),
-    extractSass, // see first few line to see the definition and the output
-    new webpack.ProvidePlugin({
-        $ : "jquery",
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        Backbone : "backbone",
-        _ : "underscore",
-    }),
-  ]
+    resolve: {
+        alias: {
+            "jquery-mobile": "jquery-mobile/dist/jquery.mobile" //webpack couldn't find jquery-mobile so I set the path myself
+        },
+    },
+    plugins: [
+        require('autoprefixer'),
+        extractSass, // see first few line to see the definition and the output
+        new webpack.ProvidePlugin({
+          $ : "jquery",
+          jQuery: 'jquery',
+          'window.jQuery': 'jquery',
+          Backbone : "backbone",
+          _ : "underscore",
+      }),
+    ]
 };
 
 // Tuto: https://blog.madewithenvy.com/getting-started-with-webpack-2-ed2b86c68783
