@@ -2,27 +2,29 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const extractSass = new ExtractTextPlugin({
-    filename: "../css/[name].css",
+const extractToCSS = new ExtractTextPlugin({
+    filename: "./css/[name].css",
     disable: false
 });
 module.exports = {// See https://webpack.js.org/concepts/
+    devtool: 'source-map',
     context: path.resolve(__dirname, './'),
     entry: {
         main: './src/js/main.js',
     },
     output: {
-        path: path.resolve(__dirname, './dist/js'),
-        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, './dist/'),
+        filename: './js/[name].bundle.js',
     },
     module: {
         rules: [// See: https://webpack.js.org/configuration/module/#rule, https://webpack.js.org/concepts/loaders/
         {// Sass loader
             test: /\.sass$/,
-            use: extractSass.extract({
+            use: extractToCSS.extract({
                 use: [{
                     loader: "css-loader"
-                }, {
+                }, 
+                {
                     loader: "postcss-loader",
                     options: {
                         plugins: function () {
@@ -31,10 +33,15 @@ module.exports = {// See https://webpack.js.org/concepts/
                             ];
                         }
                     }
-                }, {
+                }, 
+                {
+                    loader: "resolve-url-loader"
+                }, 
+                {
                     loader: "sass-loader",
                     options: {
-                        indentedSyntax: 'sass'
+                        indentedSyntax: 'sass',
+                        sourceMap: true
                     }
                 }],
                 fallback: "style-loader"
@@ -42,10 +49,11 @@ module.exports = {// See https://webpack.js.org/concepts/
         },
         {// Stylus loader
             test: /\.styl$/,
-            use: extractSass.extract({
+            use: extractToCSS.extract({
                 use: [{
                     loader: "css-loader"
-                }, {
+                }, 
+                {
                     loader: "postcss-loader",
                     options: {
                         plugins: function () {
@@ -54,8 +62,15 @@ module.exports = {// See https://webpack.js.org/concepts/
                             ];
                         }
                     }
-                }, {
-                    loader: "stylus-loader"
+                }, 
+                {
+                    loader: "resolve-url-loader"
+                }, 
+                {
+                    loader: "stylus-loader",
+                    options: {
+                        sourceMap: true
+                    }
                 }],
                 fallback: "style-loader"
             })
@@ -65,7 +80,8 @@ module.exports = {// See https://webpack.js.org/concepts/
             use: ExtractTextPlugin.extract({
                 use: [{
                     loader: "css-loader"
-                }, {
+                }, 
+                {
                     loader: "postcss-loader",
                     options: {
                         plugins: function () {
@@ -86,30 +102,42 @@ module.exports = {// See https://webpack.js.org/concepts/
         //   test: /\.json$/,
         //   use: 'json-loader' // NOT NEEDED ANYMORE https://webpack.js.org/guides/migrating/#json-loader-is-not-required-anymore
         // },
-        {// Image loader
+        // {// Image loader (Compressing Images)
+        //     test: /\.(jpe?g|png|gif|svg)$/i,
+        //     exclude: [/fonts/],
+        //     use: [{
+        //         loader: 'file-loader?hash=sha512&digest=hex&name=../images/export/[name].[ext]',
+        //     }, {
+        //         loader: 'image-webpack-loader',
+        //         options: {
+        //             bypassOnDebug: true,
+        //             // optimizationLevel: 7,
+        //             // interlaced: false,
+        //             // mozjpeg: {
+        //             //     progressive: true,
+        //             // },
+        //             gifsicle: {
+        //                 interlaced: false,
+        //             },
+        //             pngquant: {
+        //                 quality: '100',
+        //                 optimizationLevel: 7,
+        //                 speed: 3,
+        //             },
+        //         },
+        //     }]
+        // },
+        {// Image loader (Resolving Images path)
             test: /\.(jpe?g|png|gif|svg)$/i,
             exclude: [/fonts/],
             use: [{
-                loader: 'file-loader?hash=sha512&digest=hex&name=../images/export/[name].[ext]',
-            }, {
-                loader: 'image-webpack-loader',
+                loader:'url-loader',
                 options: {
-                    bypassOnDebug: true,
-                    // optimizationLevel: 7,
-                    // interlaced: false,
-                    // mozjpeg: {
-                    //     progressive: true,
-                    // },
-                    gifsicle: {
-                        interlaced: false,
-                    },
-                    pngquant: {
-                        quality: '100',
-                        optimizationLevel: 7,
-                        speed: 3,
-                    },
-                },
+                    name: '../../[path][name].[ext]',
+                    limit: 1
+                }
             }]
+
         },
         {// Font loader
             test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
@@ -120,10 +148,12 @@ module.exports = {// See https://webpack.js.org/concepts/
             use: [{
                 loader: 'expose-loader',
                 options: 'window.jQuery'
-            }, {
+            }, 
+            {
                 loader: 'expose-loader',
                 options: 'jQuery'
-            }, {
+            }, 
+            {
                 loader: 'expose-loader',
                 options: '$'
             }]
@@ -136,7 +166,7 @@ module.exports = {// See https://webpack.js.org/concepts/
     },
     plugins: [
         require('autoprefixer'),
-        extractSass, // see first few line to see the definition and the output
+        extractToCSS, // see first few line to see the definition and the output
         new webpack.ProvidePlugin({
           $ : "jquery",
           jQuery: 'jquery',

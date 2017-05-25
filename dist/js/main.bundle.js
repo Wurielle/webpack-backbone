@@ -22706,3 +22706,4 @@ module.exports = MainPageView;
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=main.bundle.js.map
